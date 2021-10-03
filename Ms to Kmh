@@ -1,0 +1,220 @@
+//made by Riuck.
+
+import java.awt.*;
+import hsa.Console;
+import javax.swing.*;     //import from demo
+
+public class ReturnMethod
+{
+    Console c;           // The output console
+
+    ReturnMethod ()
+    {
+        c = new Console ();
+
+    }
+
+
+
+
+    private void title ()
+    { //this method is for the title
+
+
+
+        c.clear ();
+        c.print (" ", 25);
+        c.println ("From M/S to Km/h, and Km/h to M/s");
+        c.println (" ");
+
+
+
+
+    }
+
+
+
+    private void pauseProgram ()
+    { //this method is used throught the code to pause
+
+        c.println ("Please enter a key to continue");
+        c.getChar ();
+
+    }
+
+
+    int x1;
+
+    public void splashScreen ()
+    {
+
+
+        c.println ("Loading...");
+        c.setColor (Color.black);
+        for (int i = 0 ; i < 640 ; i++)
+        {
+        
+            c.fillRect(i, 400, i, 100);
+
+
+            try
+            {
+                Thread.sleep (1);
+            }
+            catch (Exception e)
+            {
+            }
+           
+        }
+        c.clear ();
+        }
+
+    
+
+
+
+    public void instructions ()
+    { //this method is for telling the user the function of this code
+
+        title ();
+
+        c.println ("This is a program which will calculate the speed from M/S to Km/H, and Km/H to  M/S");
+        c.println ("Please choose option a or b. ");
+        c.println (" ");
+
+        pauseProgram ();
+
+
+    }
+
+
+
+    public void mainMenu ()
+    {
+
+        title ();
+        c.println ("A) From M/s to Km/H");
+        c.println ("B) From Km/H to M/s");
+
+
+
+    }
+
+
+
+    //variables
+    boolean error = true;
+    char measurment;
+    float Ms;
+
+
+
+    public void askData ()
+    {
+
+
+
+        title ();
+
+        while (error)
+        {
+
+            c.println ("a) From M/s to Km/H");
+            c.println ("b) From Km/H to M/s");
+
+            measurment = c.getChar ();
+
+            if (measurment != ('a') && measurment != ('b'))  //error check
+            {
+                JOptionPane.showMessageDialog (null, "Please enter A or B");
+
+
+            }
+            else
+            {
+                error = false;
+            }
+
+        }
+
+    }
+
+
+
+
+    public void yourReturnMethod ()
+    {
+
+        String mea = String.valueOf (measurment); //This is built in java code to transfer a char to a string
+
+
+
+        if (mea.equals ("a"))
+        { //if the user entered a, i calculated ms to km
+
+            c.println ("Please enter your M/s, to calculate to Km/H");
+
+            Ms = c.readFloat ();  //reads input
+
+            c.print (Ms);
+            c.print ("M/s to Km/H = ");
+            c.println (Ms * 3.6);
+        }
+
+        else if (mea.equals ("b"))
+        { //if the user entered b, i calculated km to ms
+
+            c.println ("Please enter your Km/H, to calculate to M/s");
+
+            Ms = c.readFloat (); //reads input
+
+            c.print (Ms);
+            c.print ("Km/H to M/s = ");
+            c.println (Ms / 3.6);
+        }
+
+
+
+        else if (mea != ("a")) //error check
+        {
+            c.clear ();
+            c.println ("Please enter:");
+            c.println ("a) ");
+            c.println ("b) ");
+        }
+
+
+    }
+
+
+    public void goodBye ()
+    { ///this is the ending
+
+
+
+        c.println ("Thank you for using my program, hope you enjoyed");
+
+        pauseProgram ();
+
+        System.exit (0); //this exits the program
+
+
+    }
+
+
+
+    public static void main (String[] args)  //this is where to control methods
+    {
+        ReturnMethod d = new ReturnMethod ();
+        d.title ();
+        d.splashScreen();
+        d.instructions ();
+        d.mainMenu ();
+        d.askData ();
+        d.yourReturnMethod ();
+
+        d.goodBye ();
+
+
+    } // main method
+} // JavaOutput class
