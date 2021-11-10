@@ -14,41 +14,27 @@ public class ReturnMethod
 
     }
 
-
-
-
     private void title ()
     { //this method is for the title
-
-
 
         c.clear ();
         c.print (" ", 25);
         c.println ("From M/S to Km/h, and Km/h to M/s");
         c.println (" ");
-
-
-
-
     }
-
-
-
+    
     private void pauseProgram ()
     { //this method is used throught the code to pause
 
         c.println ("Please enter a key to continue");
         c.getChar ();
-
+       
     }
-
 
     int x1;
 
     public void splashScreen ()
     {
-
-
         c.println ("Loading...");
         c.setColor (Color.black);
         for (int i = 0 ; i < 640 ; i++)
@@ -69,10 +55,6 @@ public class ReturnMethod
         c.clear ();
         }
 
-    
-
-
-
     public void instructions ()
     { //this method is for telling the user the function of this code
 
@@ -83,11 +65,7 @@ public class ReturnMethod
         c.println (" ");
 
         pauseProgram ();
-
-
     }
-
-
 
     public void mainMenu ()
     {
@@ -95,26 +73,17 @@ public class ReturnMethod
         title ();
         c.println ("A) From M/s to Km/H");
         c.println ("B) From Km/H to M/s");
-
-
-
     }
-
-
-
+    
     //variables
     boolean error = true;
     char measurment;
     float Ms;
 
-
-
     public void askData ()
     {
 
-
-
-        title ();
+       title ();
 
         while (error)
         {
@@ -127,8 +96,6 @@ public class ReturnMethod
             if (measurment != ('a') && measurment != ('b'))  //error check
             {
                 JOptionPane.showMessageDialog (null, "Please enter A or B");
-
-
             }
             else
             {
@@ -139,15 +106,10 @@ public class ReturnMethod
 
     }
 
-
-
-
     public void yourReturnMethod ()
     {
 
         String mea = String.valueOf (measurment); //This is built in java code to transfer a char to a string
-
-
 
         if (mea.equals ("a"))
         { //if the user entered a, i calculated ms to km
@@ -173,8 +135,6 @@ public class ReturnMethod
             c.println (Ms / 3.6);
         }
 
-
-
         else if (mea != ("a")) //error check
         {
             c.clear ();
@@ -182,15 +142,10 @@ public class ReturnMethod
             c.println ("a) ");
             c.println ("b) ");
         }
-
-
     }
-
 
     public void goodBye ()
     { ///this is the ending
-
-
 
         c.println ("Thank you for using my program, hope you enjoyed");
 
@@ -198,10 +153,7 @@ public class ReturnMethod
 
         System.exit (0); //this exits the program
 
-
     }
-
-
 
     public static void main (String[] args)  //this is where to control methods
     {
@@ -212,9 +164,7 @@ public class ReturnMethod
         d.mainMenu ();
         d.askData ();
         d.yourReturnMethod ();
-
         d.goodBye ();
-
 
     } // main method
 } // JavaOutput class
